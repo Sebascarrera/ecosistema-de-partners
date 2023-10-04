@@ -7,18 +7,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <img src="img/logo-convencion-siemens.png" alt="Convención Nacional de Canales Siemens 2023">
-    </header>
     <section class="cont-invitacion">
         <div class="invitacion">
-            <video width="100%" height="100%" controls>
-                <source src="img/espectro-audio-neon-sia-export.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de videos.
-            </video>
+            <div class="video-container">
+                <video controls autoplay poster="img/poster-SIA-ecoxperience.png">
+                  <source src="img/espectro-audio-nenon-sia-vertical-logo-export.mp4" type="video/mp4">
+                  Tu navegador no soporta la reproducción de video.
+                </video>
+              </div>           
         </div>
     </section>
-    <footer>
+    <section class="overlay-section">
         <div class="cont-temporizador">
             <div class="bloque">
                 <div class="dias" id="dias">00</div>
@@ -37,7 +36,8 @@
                 <p>Segundos</p>
             </div>
         </div>
-    </footer>
+    </section>
     <script src="app.js"></script>
+    <script src="play.js"></script>
 </body>
 </html>

@@ -1,76 +1,27 @@
-let horas = 24;
-let minutos = 0;
-let segundos = 0;
-cargarSegundo();
+// Fecha objetivo (debe estar en formato "YYYY-MM-DDTHH:MM:SS")
+const fechaObjetivo = new Date("2023-11-02T16:30:00").getTime();
 
-//Definimos y ejecutamos los segundos
+function actualizarTemporizador() {
+  const ahora = new Date().getTime();
+  const diferencia = fechaObjetivo - ahora;
 
-function cargarSegundo(){
-    let txtSegundos;
+  if (diferencia > 0) {
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
 
-    if(segundos < 0){
-        segundos = 59;
-    }
-
-    //Mostrar segundos en pantalla
-    if(segundos < 10){
-        txtSegundos = `0${segundos}`;
-    }
-    else{
-        txtSegundos = segundos;
-    }
-    document.getElementById('segundos').innerHTML = txtSegundos;
-    segundos --;
-
-    cargarMinutos(segundos);
+    document.getElementById('dias').innerHTML = dias;
+    document.getElementById('horas').innerHTML = horas < 10 ? `0${horas}` : horas;
+    document.getElementById('minutos').innerHTML = minutos < 10 ? `0${minutos}` : minutos;
+    document.getElementById('segundos').innerHTML = segundos < 10 ? `0${segundos}` : segundos;
+  } else {
+    // Cuando la fecha objetivo ha pasado, puedes mostrar un mensaje o tomar alguna acción.
+    document.getElementById('dias').innerHTML = "00";
+    document.getElementById('horas').innerHTML = "00";
+    document.getElementById('minutos').innerHTML = "00";
+    document.getElementById('segundos').innerHTML = "00";
+  }
 }
 
-//Definimos y ejecutamos los minutos
-function cargarMinutos(segundos){
-    let txtMinutos;
-
-    if(segundos == -1 && minutos !== 0){
-        setTimeout(() => {
-            minutos--;
-        },500)
-    }else if(segundos == -1 && minutos == 0){
-        setTimeout(() => {
-            minutos = 59;
-        },500)
-    }
-
-    //Mostrar Minutos en pantalla
-    if(minutos < 10){
-        txtMinutos = `0${minutos}`;
-    }else{
-        txtMinutos = minutos;
-    }
-    document.getElementById('minutos').innerHTML = txtMinutos;
-    cargarHoras(segundos,minutos);
-}
-
-//Definimos y ejecutamos las horas
-function cargarHoras(segundos,minutos){
-    let txtHoras;
-
-    if(segundos == -1 && minutos == 0 && horas !== 0){
-        setTimeout(() =>{
-            horas--;
-        },500)
-    }else if(segundos == -1 && minutos == 0 && horas == 0){
-        setTimeout(() =>{
-            horas = 2;
-        },500)
-    }
-
-    //Mostrar Horas en pantalla
-    if(horas < 10){
-        txtHoras = `0${horas}`;
-    }else{
-        txtHoras = horas;
-    }
-    document.getElementById('horas').innerHTML = txtHoras;
-}
-
-//Ejecutamos cada segundo
-setInterval(cargarSegundo, 1000);
+setInterval(actualizarTemporizador, 1000);
