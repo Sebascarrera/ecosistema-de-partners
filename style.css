@@ -98,7 +98,7 @@ body{
 
 /* Estilos para pantallas grandes (por ejemplo, computadoras de escritorio) */
 @media (min-width: 917px) {
-    video {
+    .desktop-video {
       width: 100%; /* Ancho completo */
       height: auto; /* Altura automática para mantener la relación de aspecto original */
     }
@@ -106,7 +106,7 @@ body{
   
   /* Estilos para dispositivos móviles */
   @media (max-width: 916px) {
-    video {
+    .mobile-video {
       width: auto; /* Ancho automático para ajustar al contenedor */
       max-width: 100%; /* Máximo ancho para mantener la legibilidad */
       height: 100vh; /* Altura completa de la pantalla */
