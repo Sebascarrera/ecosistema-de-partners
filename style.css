@@ -1,0 +1,71 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+body{
+    background-image: url('img/background-ecoxperience-vertical.png'); 
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header img{
+    width: 40%;
+}
+
+.cont-temporizador{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.cont-temporizador .bloque{
+    margin: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cont-temporizador .bloque div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-size: 22px;
+    font-weight: bolder;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    border: 1px solid #00FFB9; /* Borde azul */
+    border-radius: 50%;
+    box-shadow: 0 0 3px #A4FFE3, 0 0 8px #85FFD9, 0 0 10px #00FFB9, 0 0 16px #00FFB9;
+    animation: neon-animation 1s ease-in-out infinite alternate;
+}
+
+@keyframes mi-animacion {
+    /* Define las etapas de la animación aquí */
+}
+
+.cont-temporizador .bloque div {
+    animation: mi-animacion 2s ease-in-out infinite;
+    /* Aplica la animación a los elementos que coinciden con la selección */
+}
+
+.cont-temporizador .bloque p{
+    color: aliceblue;
+    font-size: 12px;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+}
