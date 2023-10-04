@@ -24,6 +24,16 @@ body{
     height: auto;
     display: block;
   }
+
+  /* Estilos para la versión desktop */
+.desktop-video {
+    display: block; /* Mostrar el video desktop por defecto */
+  }
+  
+  /* Estilos para la versión móvil */
+  .mobile-video {
+    display: none; /* Ocultar el video móvil por defecto */
+  }
   
   /* Estilos del section superpuesto */
   .overlay-section {
@@ -90,7 +100,6 @@ body{
 @media (min-width: 917px) {
     video {
       width: 100%; /* Ancho completo */
-      max-width: 960px; /* Máximo ancho para mantener la legibilidad */
       height: auto; /* Altura automática para mantener la relación de aspecto original */
     }
   }
@@ -101,6 +110,16 @@ body{
       width: auto; /* Ancho automático para ajustar al contenedor */
       max-width: 100%; /* Máximo ancho para mantener la legibilidad */
       height: 100vh; /* Altura completa de la pantalla */
+    }
+  }
+
+/* Media query para pantallas con un ancho máximo de 767px (tamaño de pantalla móvil) */
+@media (max-width: 916px) {
+    .desktop-video {
+      display: none; /* Ocultar el video desktop en pantallas móviles */
+    }
+    .mobile-video {
+      display: block; /* Mostrar el video móvil en pantallas móviles */
     }
   }
   
